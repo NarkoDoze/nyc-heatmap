@@ -77,22 +77,16 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
   <div id = 'map'></div>
   <div id = 'titleBox'>
-    Zip Code 11201 Vehicle Collisions Animated Heatmap (September 1 - Now)
+    Animated Heatmap for Traffic Propagation Tree
   </div>
   <div id = 'chartBox'></div>
 
   <!-- Example data. -->
-
-
   <script>
-
-
-
-
 
   //heatmap.js config
   var cfg = {
-    "radius": .001,
+    "radius": .002,
     "maxOpacity": 1, 
     "scaleRadius": true, 
     "useLocalExtrema": false,
@@ -200,9 +194,7 @@
       }
     }
     data.data = newData;
-    
     heatmapLayer.setData(data);
-
 
     //update the chart
     day = svg.selectAll(".day")
@@ -211,8 +203,6 @@
       .append("g")
       .attr("class", "day")
       .attr("transform", function (d) {
-        //var yesterday = new Date(d.date);
-        //yesterday = yesterday.setDate(yesterday.getDate() - 1)
         return "translate(" + x(d.date) + ",0)";
       })
       .append("rect")
@@ -234,11 +224,7 @@
     function getAnotherDay() {
 
       nextDate = new Date(nextDate.setHours(24,0,0,0));
-
-
-      
       var todayCounter = 0;
-      
 
       //iterate over goodData, push today's events to data.data
       for (;;index++) {
