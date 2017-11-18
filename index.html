@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>PGC Crime Heatmap Test</title>
+<title>Animated Heatmap</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <style>
@@ -110,7 +110,6 @@
   });
 
   //let Socrata do the sorting:
-  https://data.cityofnewyork.us/NYC-BigApps/NYPD-Motor-Vehicle-Collisions/h9gi-nx95
   var sodaUrl = "http://data.cityofnewyork.us/resource/h9gi-nx95.json?$where=date>%272014-09-01%27%20AND%20date<%272014-10-01%27%20AND%20zip_code=%2711201%27%20AND%20date%20IS%20NOT%20NULL&$order=date%20ASC";
 
   //get json from the Socrata API
@@ -129,9 +128,7 @@
 
       if(rawData[i].location) {
         if (rawData[i].location.latitude && rawData[i].location.longitude) {
-      
           goodData.push(rawData[i]);
-          
         }; 
       };
     };
